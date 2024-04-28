@@ -1,0 +1,33 @@
+Simulation of a War Scene
+
+Mehmet Süzer - 2019400213
+Ahmet Bera Pay - 2020400183
+
+Technical Challenge: Simulation of a high number of rigid body objects
+
+We will simulate a war scene with the followings:
+    1- a destructible building like a tower or castle 
+    2- weapons shooting projectiles (cannons or catapults depending on the availability of free assets)
+    3- particle effects
+    4- soldiers combatting
+
+We will build a destructible building with thousands of bricks.
+Cannons and catapults will be facing to the building and will fire projectiles periodically.
+Particle effects like smoke, explosion, and fire will be displayed when the projectiles are shot.
+High number of soldiers will be present in the battlefield. 
+
+Parameters:
+    1- number and size of bricks 
+    2- size of the building
+    3- number of cannons or catapults
+    4- whether particle effects are active or not
+    5- number of soldiers
+    6- rigid body parameters such as freeze rotation
+    7- whether soldiers disappear when they die or not
+    8- whether bricks disappear when they displaced from their original position or not
+
+This is the overall idea that we want to experiment. 
+Final product may be slightly different, but we will try to implement all of them.
+We will monitor FPS, the load on CPU and GPU, and the memory usage.
+
+https://assetstore.unity.com/packages/3d/animations/warrior-pack-bundle-2-free-42454
