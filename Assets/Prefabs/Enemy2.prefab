@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6545111797585122379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6545111797585122377}
+  - component: {fileID: 6545111797585122378}
+  m_Layer: 7
+  m_Name: Enemy2
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6545111797585122377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6545111797585122379}
+  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalPosition: {x: 453.46, y: 0, z: 70.36}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &6545111797585122378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6545111797585122379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95bca1e361e2946d489ad8c7c29b15fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soldierPrefabs:
+  - {fileID: 2205727224947539364, guid: e3ae98031ba2943948ca5e5872ad3707, type: 3}
+  - {fileID: 8384874713905707484, guid: 6a6c859f819f14f428709a11f409beb1, type: 3}
+  - {fileID: 5262643171190867279, guid: b9bee0bc6819046b9b577760ddd6b440, type: 3}
+  - {fileID: 3578762841575192412, guid: 26885abdb695f442c8886f66791c9ada, type: 3}
+  spacing: 2
+  maxSoldiersPerLine: 100
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64

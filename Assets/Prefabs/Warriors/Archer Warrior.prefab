@@ -389,7 +389,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 1bd48d36d3280cc4f966198224c78b9c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -2071,6 +2071,7 @@ GameObject:
   - component: {fileID: 8384874713906062844}
   - component: {fileID: 5401892025899568367}
   - component: {fileID: 5401892025899568364}
+  - component: {fileID: 323558244278120039}
   m_Layer: 0
   m_Name: Archer Warrior
   m_TagString: Player
@@ -2124,3 +2125,20 @@ CapsuleCollider:
   m_Height: 2.5
   m_Direction: 1
   m_Center: {x: 0, y: 1.25, z: 0}
+--- !u!114 &323558244278120039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8384874713905707484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552e4517fb5774fe2b20d6aef935d226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  animator: {fileID: 0}
