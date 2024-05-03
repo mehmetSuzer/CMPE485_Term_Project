@@ -28,11 +28,16 @@ public class CannonController : MonoBehaviour
     
     IEnumerator Attack()
     {
-        while (attacking)
+        while (true)
         {
             yield return new WaitForSeconds(Random.Range(3.0f, 8.0f));
-            GameObject cannonBall = Instantiate(cannonBallPrefab, transform.position, Quaternion.identity, transform);
-            cannonBall.GetComponent<Rigidbody>().velocity = cannonBallVelocity;
+            if (attacking) {
+                GameObject cannonBall = Instantiate(cannonBallPrefab, transform.position, Quaternion.identity, transform);
+                cannonBall.GetComponent<Rigidbody>().velocity = cannonBallVelocity;
+            } else 
+            {
+                break;
+            }
         }
     }
 }
