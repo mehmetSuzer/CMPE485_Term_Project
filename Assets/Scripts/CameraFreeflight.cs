@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class CameraFreeflight : MonoBehaviour 
 {
@@ -9,13 +8,7 @@ public class CameraFreeflight : MonoBehaviour
     public float mouseSensitivityX = 5.0f;
 	public float mouseSensitivityY = 5.0f;
     
-	float rotY = 0.0f;
-    
-//	void Start()
-//	{
-//		if (GetComponent<Rigidbody>())
-//			GetComponent<Rigidbody>().freezeRotation = true;
-//	}
+	private float rotY = 0.0f;
 
 	void Update()
 	{

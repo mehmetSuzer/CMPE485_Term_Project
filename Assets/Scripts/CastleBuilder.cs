@@ -13,7 +13,6 @@ public class CastleBuilder : MonoBehaviour
     public int castleThickness = 2; // Thickness of the walls
     
     private List<Rigidbody> rigidBodies;
-    private bool isCastleBuilt = false;
 
     void Start()
     {
@@ -22,17 +21,8 @@ public class CastleBuilder : MonoBehaviour
         StartCoroutine(BuildCastle());
     }
 
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.G) && !isCastleBuilt)
-    //     {
-    //         StartCoroutine(BuildCastle());
-    //     }
-    // }
-
     IEnumerator BuildCastle()
     {
-        isCastleBuilt = true;
         Vector3 brickSize = brickPrefab.transform.localScale;
         Vector3 castleStartPosition = new(xCastleStart, brickSize.y/2.0f, zCastleStart);
 

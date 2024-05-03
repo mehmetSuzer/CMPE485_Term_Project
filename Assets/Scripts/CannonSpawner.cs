@@ -8,24 +8,14 @@ public class CannonSpawner : MonoBehaviour
     public float spacing = 7.0f;
 
     private Vector3 cannonStartPosition = new(480.0f, 2.0f, 5.0f);
-    private bool areCannonsInitialized = false;
 
     void Start()
     {
         StartCoroutine(SpawnCannons());
     }
-
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.C) && !areCannonsInitialized)
-    //     {
-    //         StartCoroutine(SpawnCannons());
-    //     }
-    // }
-
+    
     IEnumerator SpawnCannons()
     {
-        areCannonsInitialized = true;
         for (int i = 0; i < count; i++)
         {
             Vector3 brickPosition = cannonStartPosition + Vector3.right * spacing * i;

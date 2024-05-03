@@ -29,7 +29,7 @@ public class SoldierSpawner : MonoBehaviour
 
                 var soldier = Instantiate(soldierPrefab, spawnPosition, transform.rotation, transform);
                 soldier.layer = gameObject.layer;
-                soldier.GetComponent<Soldier>().enemyLayer = enemyLayer;
+                soldier.GetComponent<SoldierController>().enemyLayer = enemyLayer;
 
                 yield return null;
             }

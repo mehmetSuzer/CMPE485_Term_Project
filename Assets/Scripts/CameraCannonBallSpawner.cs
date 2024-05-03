@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class CannonBallSpawner : MonoBehaviour
+public class CameraCannonBallSpawner : MonoBehaviour
 {
     public GameObject cannonBallPrefab;
     public float speed = 100.0f;
+    public float fadeSeconds = 5.0f;
 
     void Update()
     {
@@ -17,5 +18,6 @@ public class CannonBallSpawner : MonoBehaviour
     {
         GameObject cannonBall = Instantiate(cannonBallPrefab,  transform.position, Quaternion.identity);
         cannonBall.GetComponent<Rigidbody>().velocity = speed * transform.forward;
+        Destroy(cannonBall, fadeSeconds);
     }
 }

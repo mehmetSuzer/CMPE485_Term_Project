@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 4311818375376162951}
   - component: {fileID: -7666891036585765660}
   m_Layer: 0
-  m_Name: cannon prefab
-  m_TagString: Untagged
+  m_Name: CannonPrefab
+  m_TagString: Cannon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.30587912, y: -0.1510683, z: 0.17967933}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -156,8 +156,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBallPrefab: {fileID: 100000, guid: ac147cc4a2297604bb4e5bf9099ebfe8, type: 3}
+  cannonBlastPrefab: {fileID: 7890100346274769577, guid: d8ef2ff49780fb147bb020d9aedf7fa7, type: 3}
+  attackTimes:
+  - 0
+  - 0
   cannonBallSpeed: 100
-  angle: -10
+  attackAngle: -10
+  cannonBallFadeSeconds: 5
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
