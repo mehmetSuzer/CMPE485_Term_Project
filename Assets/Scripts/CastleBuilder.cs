@@ -11,7 +11,6 @@ public class CastleBuilder : MonoBehaviour
     public int castleHeight = 7; // Number of bricks high
     public int castleDepth = 22; // Number of bricks depth
     public int castleThickness = 2; // Thickness of the walls
-    public int bricksPerSecond = 100000;
     
     private List<Rigidbody> rigidBodies;
     private bool isCastleBuilt = false;
@@ -20,21 +19,22 @@ public class CastleBuilder : MonoBehaviour
     {
         int brickNumber = 2*castleThickness*(castleWidth+castleDepth-2*castleThickness)*(castleHeight+1);
         rigidBodies = new List<Rigidbody>(brickNumber);
+        StartCoroutine(BuildCastle());
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G) && !isCastleBuilt)
-        {
-            StartCoroutine(BuildCastle(xCastleStart, zCastleStart));
-        }
-    }
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.G) && !isCastleBuilt)
+    //     {
+    //         StartCoroutine(BuildCastle());
+    //     }
+    // }
 
-    IEnumerator BuildCastle(float xStart, float zStart)
+    IEnumerator BuildCastle()
     {
         isCastleBuilt = true;
         Vector3 brickSize = brickPrefab.transform.localScale;
-        Vector3 castleStartPosition = new(xStart, brickSize.y/2.0f, zStart);
+        Vector3 castleStartPosition = new(xCastleStart, brickSize.y/2.0f, zCastleStart);
 
         for (int y = 0; y < castleHeight; y++)
         {
@@ -44,7 +44,7 @@ public class CastleBuilder : MonoBehaviour
                 {
                     for (int x = 0; x < castleWidth; x++)
                     {
-                         Vector3 brickPosition = castleStartPosition + 
+                        Vector3 brickPosition = castleStartPosition + 
                         new Vector3(
                             x * brickSize.x, 
                             y * brickSize.y,
@@ -114,7 +114,7 @@ public class CastleBuilder : MonoBehaviour
                 }
             }
         }
-        
+
         foreach (Rigidbody rb in rigidBodies)
         {
             rb.freezeRotation = false;
