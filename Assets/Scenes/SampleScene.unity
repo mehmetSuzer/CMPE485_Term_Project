@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6545111797585122377, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 453.46
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 6545111797585122377, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -144,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6545111797585122377, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 70.36
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 6545111797585122377, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6545111797585122379, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
       propertyPath: m_Name
-      value: Enemy2
+      value: SoldierSpawner2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
@@ -399,7 +399,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4851467307590464925, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
       propertyPath: m_Name
-      value: Enemy1
+      value: SoldierSpawner1
       objectReference: {fileID: 0}
     - target: {fileID: 4851467307590464927, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
       propertyPath: m_RootOrder
@@ -407,7 +407,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4851467307590464927, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 453.46
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 4851467307590464927, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
       propertyPath: m_LocalPosition.y
@@ -415,7 +415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4851467307590464927, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.2
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4851467307590464927, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
       propertyPath: m_LocalRotation.w
@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 1956040196}
   - component: {fileID: 1956040195}
   m_Layer: 0
-  m_Name: WallBuilder
+  m_Name: CastleBuilder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -591,10 +591,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickPrefab: {fileID: 6106986324833583691, guid: 6e13c086ab92f674abe17073c2e54728, type: 3}
-  wallWidth: 50
-  wallHeight: 20
-  wallDepth: 1
-  spacing: 0
+  xCastleStart: 450
+  zCastleStart: 90
+  castleWidth: 42
+  castleHeight: 7
+  castleDepth: 22
+  castleThickness: 2
+  bricksPerSecond: 100000
 --- !u!4 &1956040196
 Transform:
   m_ObjectHideFlags: 0
@@ -603,7 +606,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956040194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 450, y: 0.5, z: 79.5}
+  m_LocalPosition: {x: 450, y: 0.25, z: 80}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
