@@ -157,12 +157,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonBallPrefab: {fileID: 100000, guid: ac147cc4a2297604bb4e5bf9099ebfe8, type: 3}
   cannonBlastPrefab: {fileID: 7890100346274769577, guid: d8ef2ff49780fb147bb020d9aedf7fa7, type: 3}
-  attackTimes:
-  - 0
-  - 0
   cannonBallSpeed: 100
   attackAngle: -10
   cannonBallFadeSeconds: 5
+  attackSecondLow: 3
+  attackSecondHigh: 8
+  fireSfx: {fileID: 8300000, guid: 163d50487d797404792ea97983118d54, type: 3}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0

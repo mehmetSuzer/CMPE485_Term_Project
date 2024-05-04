@@ -16,6 +16,9 @@ public class CastleBuilder : MonoBehaviour
 
     void Start()
     {
+        xCastleStart = transform.position.x + 20f;
+        zCastleStart = transform.position.z + 10f;
+        
         int brickNumber = 2*castleThickness*(castleWidth+castleDepth-2*castleThickness)*(castleHeight+1);
         rigidBodies = new List<Rigidbody>(brickNumber);
         StartCoroutine(BuildCastle());

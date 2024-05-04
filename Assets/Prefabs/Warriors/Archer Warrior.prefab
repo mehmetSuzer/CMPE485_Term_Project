@@ -2138,7 +2138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
+  attackDistance: 2
+  attackEffect: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  animator: {fileID: 0}

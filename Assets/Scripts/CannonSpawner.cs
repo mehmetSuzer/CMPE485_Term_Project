@@ -11,6 +11,7 @@ public class CannonSpawner : MonoBehaviour
 
     void Start()
     {
+        cannonStartPosition = transform.position;
         StartCoroutine(SpawnCannons());
     }
     
