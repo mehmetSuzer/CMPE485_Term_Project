@@ -3,18 +3,16 @@ using UnityEngine;
 
 public class SoldierController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float attackDistance = 2f;
-    [SerializeField] private GameObject attackEffect;
-
+    public GameObject attackEffectPrefab;
     [HideInInspector] public LayerMask enemyLayer;
+
+    private float moveSpeed = 5.0f;
+    private float attackDistance = 2.0f;
     private Animator animator;
     private Weapon weapon;
-
     private bool isAttacking = false;
     private float currentHealth = 100f;
     private float walkDistance;
-
     private RaycastHit hitInFront;
 
     private void Awake()
@@ -26,7 +24,7 @@ public class SoldierController : MonoBehaviour
     private void Start()
     {
         animator.SetBool("Moving", true);
-        animator.SetFloat("Velocity", moveSpeed / 5);
+        animator.SetFloat("Velocity", moveSpeed / 5.0f);
     }
 
     void Update()
@@ -39,7 +37,7 @@ public class SoldierController : MonoBehaviour
     {
         if (!isAttacking)
         {
-            if (!Physics.Raycast(transform.position + Vector3.up * 2f, transform.forward, out hitInFront, walkDistance))
+            if (!Physics.Raycast(transform.position + Vector3.up * 2.0f, transform.forward, out hitInFront, walkDistance))
             {
                 if (!animator.GetBool("Moving"))
                     animator.SetBool("Moving", true);
@@ -60,7 +58,7 @@ public class SoldierController : MonoBehaviour
 
     private void UpdateAttack()
     {
-        if (!Physics.Raycast(transform.position + Vector3.up * 2f, transform.forward, out hitInFront, attackDistance))
+        if (!Physics.Raycast(transform.position + Vector3.up * 2.0f, transform.forward, out hitInFront, attackDistance))
         {
             if (!animator.GetBool("Moving"))
                 animator.SetBool("Moving", true);
@@ -85,7 +83,7 @@ public class SoldierController : MonoBehaviour
             float attackAnimationLength = animator.GetCurrentAnimatorClipInfo(0).Length;
             yield return new WaitForSeconds(attackAnimationLength);
 
-            if (!Physics.Raycast(transform.position + Vector3.up * 2f, transform.forward, out hitInFront,
+            if (!Physics.Raycast(transform.position + Vector3.up * 2.0f, transform.forward, out hitInFront,
                     attackDistance))
                 break;
             if (((1 << hitInFront.transform.gameObject.layer) & enemyLayer) != 0) continue;
@@ -99,8 +97,8 @@ public class SoldierController : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Debug.DrawRay(transform.position + Vector3.up * 2f, transform.forward * attackDistance, Color.red);
-        Debug.DrawRay(transform.position + Vector3.up * 2f, transform.forward * walkDistance, Color.green);
+        Debug.DrawRay(transform.position + Vector3.up * 2.0f, transform.forward * attackDistance, Color.red);
+        Debug.DrawRay(transform.position + Vector3.up * 2.0f, transform.forward * walkDistance, Color.green);
     }
 
     public void SetParameters(LayerMask layer, float spacing)
@@ -110,14 +108,14 @@ public class SoldierController : MonoBehaviour
         if (weapon)
         {
             weapon.enemyLayer = layer;
-            weapon.attackEffect = attackEffect;
+            weapon.attackEffectPrefab = attackEffectPrefab;
         }
     }
 
     public void Damage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (currentHealth <= 0.0f)
             Destroy(gameObject);
     }
 }

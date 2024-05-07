@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class SoldierSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject[] soldierPrefabs;
+    public GameObject[] soldierPrefabs;
+    public LayerMask enemyLayer;
 
     // public Transform spawnLine; // Reference to the line spawner GameObject
-    [SerializeField] private float spacing = 1.5f;
-    [SerializeField] private int maxSoldiersPerLine = 10;
-    public int lines = 10;
-    [SerializeField] private LayerMask enemyLayer;
+    private const float spacing = 1.5f;
+    private int soldierPerLine = GameManager.instance.soldierPerLine;
+    private int lineNumber = GameManager.instance.lineNumber;
     
     void Start()
     {
@@ -18,10 +18,9 @@ public class SoldierSpawner : MonoBehaviour
 
     IEnumerator SpawnSoldiersCoroutine()
     {
-
-        for (int i = 0; i < lines; i++)
+        for (int i = 0; i < lineNumber; i++)
         {
-            for (int j = 0; j < maxSoldiersPerLine; j++)
+            for (int j = 0; j < soldierPerLine; j++)
             {
                 GameObject soldierPrefab = soldierPrefabs[Random.Range(0, soldierPrefabs.Length)];
 

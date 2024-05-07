@@ -163,9 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552e4517fb5774fe2b20d6aef935d226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  attackDistance: 2
-  attackEffect: {fileID: 866085968243588442, guid: d0809a5ae9e4d46c685e1a40fb214f97, type: 3}
+  attackEffectPrefab: {fileID: 866085968243588442, guid: d0809a5ae9e4d46c685e1a40fb214f97, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -1510,7 +1508,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  attackEffect: {fileID: 0}
+  attackEffectPrefab: {fileID: 0}
 --- !u!1 &7426727378243999858
 GameObject:
   m_ObjectHideFlags: 0

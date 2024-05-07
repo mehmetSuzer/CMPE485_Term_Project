@@ -3,10 +3,15 @@ using UnityEngine;
 public class ExplosionController : MonoBehaviour
 {
     public GameObject explosionEffectPrefab;
+
+    private bool explosionEffectActive = GameManager.instance.explosionEffectActive;
     private bool explode = false;
+
 
     void OnCollisionEnter(Collision collision)
     {
+        if (!explosionEffectActive) return;
+
         if (!explode && collision.gameObject.CompareTag("Brick"))
         {
             explode = true;

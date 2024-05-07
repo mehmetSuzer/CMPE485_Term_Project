@@ -4,20 +4,27 @@ using System.Collections.Generic;
 
 public class CastleBuilder : MonoBehaviour
 {
-    public GameObject brickPrefab; // Assign your brick prefab in the Unity Editor
-    public float xCastleStart = 470.0f;
-    public float zCastleStart = 90.0f;
-    public int castleWidth = 42; // Number of bricks wide
-    public int castleHeight = 7; // Number of bricks high
-    public int castleDepth = 22; // Number of bricks depth
-    public int castleThickness = 2; // Thickness of the walls
-    
+    public GameObject smallBrickPrefab;
+    public GameObject mediumBrickPrefab;
+    public GameObject largeBrickPrefab;
+
+    private float xCastleStart = 470.0f;
+    private float zCastleStart = 90.0f;
+    private GameObject brickPrefab; // Assign your brick prefab
+    private int castleWidth = GameManager.instance.castleWidth; // Number of bricks wide
+    private int castleHeight = GameManager.instance.castleHeight; // Number of bricks high
+    private int castleDepth = GameManager.instance.castleDepth; // Number of bricks depth
+    private const int castleThickness = 2; // Thickness of the walls
     private List<Rigidbody> rigidBodies;
 
     void Start()
     {
-        xCastleStart = transform.position.x + 20f;
-        zCastleStart = transform.position.z + 10f;
+        xCastleStart = transform.position.x + 20.0f;
+        zCastleStart = transform.position.z + 10.0f;
+
+        brickPrefab = (GameManager.instance.brickType == BrickType.Small) ? smallBrickPrefab
+                    : (GameManager.instance.brickType == BrickType.Medium) ? mediumBrickPrefab
+                    : largeBrickPrefab;
         
         int brickNumber = 2*castleThickness*(castleWidth+castleDepth-2*castleThickness)*(castleHeight+1);
         rigidBodies = new List<Rigidbody>(brickNumber);

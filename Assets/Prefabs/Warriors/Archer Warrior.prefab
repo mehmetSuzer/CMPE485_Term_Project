@@ -2137,9 +2137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552e4517fb5774fe2b20d6aef935d226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  attackDistance: 2
-  attackEffect: {fileID: 0}
+  attackEffectPrefab: {fileID: 8423598095741355672, guid: 9bcf17168fe5a44d4915c0da39686285, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0

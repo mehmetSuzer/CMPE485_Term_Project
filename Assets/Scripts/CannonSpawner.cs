@@ -4,9 +4,8 @@ using UnityEngine;
 public class CannonSpawner : MonoBehaviour
 {
     public GameObject cannonPrefab;
-    public int count = 20;
-    public float spacing = 7.0f;
-
+    private int cannonNumber = GameManager.instance.cannonNumber;
+    private float spacing = 7.0f;
     private Vector3 cannonStartPosition = new(480.0f, 2.0f, 5.0f);
 
     void Start()
@@ -17,7 +16,7 @@ public class CannonSpawner : MonoBehaviour
     
     IEnumerator SpawnCannons()
     {
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < cannonNumber; i++)
         {
             Vector3 brickPosition = cannonStartPosition + Vector3.right * spacing * i;
             GameObject cannon = Instantiate(cannonPrefab, brickPosition, Quaternion.identity, transform);

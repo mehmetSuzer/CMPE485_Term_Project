@@ -3,8 +3,8 @@ using UnityEngine;
 public class CameraCannonBallSpawner : MonoBehaviour
 {
     public GameObject cannonBallPrefab;
-    public float speed = 100.0f;
-    public float fadeSeconds = 5.0f;
+    private float speed = 100.0f;
+    private float fadeSeconds = 5.0f;
 
     void Update()
     {
