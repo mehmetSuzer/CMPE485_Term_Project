@@ -7,7 +7,7 @@ public class SoldierSpawner : MonoBehaviour
     public LayerMask enemyLayer;
 
     // public Transform spawnLine; // Reference to the line spawner GameObject
-    private const float spacing = 1.5f;
+    private const float spacing = 5f;
     private int soldierPerLine = GameManager.instance.soldierPerLine;
     private int lineNumber = GameManager.instance.lineNumber;
     
@@ -24,7 +24,7 @@ public class SoldierSpawner : MonoBehaviour
             {
                 GameObject soldierPrefab = soldierPrefabs[Random.Range(0, soldierPrefabs.Length)];
 
-                Vector3 spawnPosition = transform.position + Vector3.right * j * spacing + Vector3.forward * i * spacing;
+                Vector3 spawnPosition = transform.position + Vector3.right * j * spacing + Vector3.back * i * spacing;
 
                 var soldier = Instantiate(soldierPrefab, spawnPosition, transform.rotation, transform);
                 soldier.layer = gameObject.layer;

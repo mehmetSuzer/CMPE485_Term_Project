@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField] private GameObject canvas;
+    
     // Variables to store between menu scene and simulation scene
     public int lineNumber;
     public Slider lineNumberSlider;
@@ -43,6 +45,14 @@ public class GameManager : MonoBehaviour
 
     public bool bloodMagicEffectActive;
     public Toggle bloodMagicEffectToggle;
+    
+    public int cannonBallLifetime;
+    public Slider cannonBallLifetimeSlider;
+    public TMP_Text cannonBallLifetimeText;
+    
+    public int attackEffectLifetime;
+    public Slider attackEffectLifetimeSlider;
+    public TMP_Text attackEffectLifetimeText;
 
     public BrickType brickType = BrickType.Small;
     public TMP_Dropdown brickTypeDropdown;
@@ -93,6 +103,14 @@ public class GameManager : MonoBehaviour
 
         bloodMagicEffectToggle.onValueChanged.AddListener(UpdateBloodMagicEffect);
         bloodMagicEffectActive = bloodMagicEffectToggle.isOn;
+        
+        cannonBallLifetimeSlider.onValueChanged.AddListener(UpdateCannonBallLifetimeText);
+        cannonBallLifetime = (int)cannonBallLifetimeSlider.value;
+        cannonBallLifetimeText.text = cannonBallLifetime.ToString();
+        
+        attackEffectLifetimeSlider.onValueChanged.AddListener(UpdateAttackEffectLifetimeText);
+        attackEffectLifetime = (int)attackEffectLifetimeSlider.value;
+        attackEffectLifetimeText.text = attackEffectLifetime.ToString();
 
         brickTypeDropdown.onValueChanged.AddListener(UpdateBrickTypeDropdown);
         brickType = (BrickType)brickTypeDropdown.value;
@@ -139,6 +157,20 @@ public class GameManager : MonoBehaviour
         cannonNumberText.text = cannonNumber.ToString();
         Debug.Log("New Cannon Number: " + cannonNumber);
     }
+    
+    private void UpdateCannonBallLifetimeText(float value)
+    {
+        cannonBallLifetime = (int)value;
+        cannonBallLifetimeText.text = cannonBallLifetime.ToString();
+        Debug.Log("New Cannon Ball Lifetime: " + cannonBallLifetime);
+    }
+    
+    private void UpdateAttackEffectLifetimeText(float value)
+    {
+        attackEffectLifetime = (int)value;
+        attackEffectLifetimeText.text = attackEffectLifetime.ToString();
+        Debug.Log("New Attack Effect Lifetime: " + attackEffectLifetime);
+    }
 
     private void UpdateExplosionEffect(bool value)
     {
@@ -161,29 +193,33 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        return;
+        // return;
 
         // TODO: Implement transitions of menu to simulation and vice versa
-        // if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-        // {
-        //     if (currentScene == "MenuScene")
-        //     {
-        //         ChangeSceneToSimulation();
-        //     } else
-        //     {
-        //         ChangeSceneToMenu();
-        //     }
-        // }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangeSceneToMenu();
+            // if (currentScene == "MenuScene")
+            // {
+            //     ();
+            // } else
+            // {
+            //     ChangeSceneToMenu();
+            // }
+        }
     }
 
     private void ChangeSceneToMenu()
     {
         currentScene = "MenuScene";
         SceneManager.LoadScene(currentScene);
+        canvas.SetActive(true);
+
     }
 
     public void ChangeSceneToSimulation()
     {
+        canvas.SetActive(false);
         currentScene = "SimulationScene";
         SceneManager.LoadScene(currentScene);
     }

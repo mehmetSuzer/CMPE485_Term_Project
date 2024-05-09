@@ -12,7 +12,7 @@ public class SoldierController : MonoBehaviour
     private Weapon weapon;
     private bool isAttacking = false;
     private float currentHealth = 100f;
-    private float walkDistance;
+    private float walkDistance = 5f;
     private RaycastHit hitInFront;
 
     private void Awake()

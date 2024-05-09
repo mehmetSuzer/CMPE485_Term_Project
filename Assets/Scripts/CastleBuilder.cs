@@ -19,8 +19,8 @@ public class CastleBuilder : MonoBehaviour
 
     void Start()
     {
-        xCastleStart = transform.position.x + 20.0f;
-        zCastleStart = transform.position.z + 10.0f;
+        xCastleStart = transform.position.x;
+        zCastleStart = transform.position.z;
 
         brickPrefab = (GameManager.instance.brickType == BrickType.Small) ? smallBrickPrefab
                     : (GameManager.instance.brickType == BrickType.Medium) ? mediumBrickPrefab

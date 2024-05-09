@@ -9,10 +9,10 @@ public class CannonController : MonoBehaviour
 
     private bool explosionEffectActive = GameManager.instance.explosionEffectActive;
     private float cannonBallSpeed = 100.0f;
-    private float attackAngle = -10.0f;
+    private float attackAngle = -13.5f;
     private float attackSecondLow = 3.0f;
     private float attackSecondHigh = 8.0f;
-    private float cannonBallFadeSeconds = 5.0f;
+    private float cannonBallFadeSeconds = GameManager.instance.cannonBallLifetime;
     private float explosionEffectFadeSeconds = 1.0f;
     private bool attacking = false;
     private Vector3 cannonBallVelocity;

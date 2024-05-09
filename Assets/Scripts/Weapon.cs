@@ -5,7 +5,7 @@ public class Weapon : MonoBehaviour
     public LayerMask enemyLayer;
     public GameObject attackEffectPrefab;
     private bool bloodMagicEffectActive = GameManager.instance.bloodMagicEffectActive;
-    private float attackEffectFadeSeconds = 3.0f;
+    private float attackEffectFadeSeconds = GameManager.instance.attackEffectLifetime;
     
     private void OnTriggerEnter(Collider other)
     {
