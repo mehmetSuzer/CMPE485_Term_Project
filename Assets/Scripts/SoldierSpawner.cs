@@ -10,10 +10,15 @@ public class SoldierSpawner : MonoBehaviour
     private const float spacing = 5f;
     private int soldierPerLine = GameManager.instance.soldierPerLine;
     private int lineNumber = GameManager.instance.lineNumber;
-    
-    void Start()
+    private bool spawningStarted = false;
+
+    void Update()
     {
-        StartCoroutine(SpawnSoldiersCoroutine());
+        if (!spawningStarted && Input.GetKeyDown(KeyCode.B)) // Start spawning soldiers
+        {
+            spawningStarted = true;
+            StartCoroutine(SpawnSoldiersCoroutine());
+        }
     }
 
     IEnumerator SpawnSoldiersCoroutine()

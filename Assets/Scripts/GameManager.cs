@@ -11,8 +11,9 @@ public enum BrickType {
 
 public class GameManager : MonoBehaviour
 {
+    
     public static GameManager instance;
-
+    public Material[] materials; // Assign materials to enable GPU instancing
     [SerializeField] private GameObject canvas;
     
     // Variables to store between menu scene and simulation scene
@@ -45,6 +46,9 @@ public class GameManager : MonoBehaviour
 
     public bool bloodMagicEffectActive;
     public Toggle bloodMagicEffectToggle;
+
+    public bool GPUInstancingActive;
+    public Toggle GPUInstancingToggle;
     
     public int cannonBallLifetime;
     public Slider cannonBallLifetimeSlider;
@@ -74,6 +78,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // Disable GPU instancing for all materials initially
+        UpdateGPUInstancing(true);
+
         lineNumberSlider.onValueChanged.AddListener(UpdateLineNumberText);
         lineNumber = (int)lineNumberSlider.value;
         lineNumberText.text = lineNumber.ToString();
@@ -103,6 +110,9 @@ public class GameManager : MonoBehaviour
 
         bloodMagicEffectToggle.onValueChanged.AddListener(UpdateBloodMagicEffect);
         bloodMagicEffectActive = bloodMagicEffectToggle.isOn;
+
+        GPUInstancingToggle.onValueChanged.AddListener(UpdateGPUInstancing);
+        GPUInstancingActive = GPUInstancingToggle.isOn;
         
         cannonBallLifetimeSlider.onValueChanged.AddListener(UpdateCannonBallLifetimeText);
         cannonBallLifetime = (int)cannonBallLifetimeSlider.value;
@@ -182,6 +192,16 @@ public class GameManager : MonoBehaviour
     {
         bloodMagicEffectActive = value;
         Debug.Log("BloodMagic Effect is Activated: " + bloodMagicEffectActive);
+    }
+
+    private void UpdateGPUInstancing(bool value)
+    {
+        GPUInstancingActive = value;
+        foreach (Material material in materials)
+        {
+            material.enableInstancing = value;
+        }
+        Debug.Log("GPU Instancing is Activated: " + GPUInstancingActive);
     }
 
     private void UpdateBrickTypeDropdown(int value)
