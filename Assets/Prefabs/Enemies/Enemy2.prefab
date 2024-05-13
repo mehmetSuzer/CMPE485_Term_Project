@@ -49,8 +49,6 @@ MonoBehaviour:
   - {fileID: 8384874713905707484, guid: 6a6c859f819f14f428709a11f409beb1, type: 3}
   - {fileID: 5262643171190867279, guid: b9bee0bc6819046b9b577760ddd6b440, type: 3}
   - {fileID: 3578762841575192412, guid: 26885abdb695f442c8886f66791c9ada, type: 3}
-  spacing: 2
-  maxSoldiersPerLine: 100
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64

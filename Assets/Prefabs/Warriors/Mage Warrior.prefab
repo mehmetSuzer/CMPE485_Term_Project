@@ -1509,6 +1509,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   attackEffectPrefab: {fileID: 0}
+  attackEffectType: 1
 --- !u!1 &7426727378243999858
 GameObject:
   m_ObjectHideFlags: 0

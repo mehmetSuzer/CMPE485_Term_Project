@@ -1,4 +1,5 @@
 using System.Collections;
+using ObjectPools;
 using UnityEngine;
 
 public class CannonController : MonoBehaviour
@@ -35,15 +36,31 @@ public class CannonController : MonoBehaviour
     void Blast()
     {
         Vector3 position = transform.position + new Vector3(0.0f, 1.5f, 4.0f);
-        GameObject explosionEffect = Instantiate(cannonBlastPrefab, position, Quaternion.identity);
-        ParticleSystem[] particleSystems = explosionEffect.GetComponentsInChildren<ParticleSystem>();
-        foreach (ParticleSystem ps in particleSystems)
-        {
-            ps.Play();
-        }
-        AudioSource.PlayClipAtPoint(fireSfx, transform.position);
 
-        Destroy(explosionEffect, explosionEffectFadeSeconds);
+        if (GameManager.instance.ObjectPoolingActive)
+        {
+            GameObject explosionEffect = BlastPool.Instance.GetPooledObject(explosionEffectFadeSeconds);
+            explosionEffect.transform.SetPositionAndRotation(position, Quaternion.identity);
+            ParticleSystem[] particleSystems = explosionEffect.GetComponentsInChildren<ParticleSystem>();
+            foreach (ParticleSystem ps in particleSystems)
+            {
+                ps.Play();
+            }
+        }
+        else
+        {
+            GameObject explosionEffect = Instantiate(cannonBlastPrefab, position, Quaternion.identity);
+
+            ParticleSystem[] particleSystems = explosionEffect.GetComponentsInChildren<ParticleSystem>();
+            foreach (ParticleSystem ps in particleSystems)
+            {
+                ps.Play();
+            }
+
+            Destroy(explosionEffect, explosionEffectFadeSeconds);
+        }
+
+        AudioSource.PlayClipAtPoint(fireSfx, transform.position);
     }
 
     IEnumerator Attack()
@@ -53,9 +70,23 @@ public class CannonController : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(attackSecondLow, attackSecondHigh));
             if (attacking)
             {
-                GameObject cannonBall = Instantiate(cannonBallPrefab, transform.position, Quaternion.identity, transform);
-                cannonBall.GetComponent<Rigidbody>().velocity = cannonBallVelocity;
-                Destroy(cannonBall, cannonBallFadeSeconds);
+                if (GameManager.instance.ObjectPoolingActive)
+                {
+                    GameObject cannonBall =
+                        CannonBallPool.Instance.GetPooledObject(GameManager.instance.cannonBallLifetime);
+                    cannonBall.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
+                    cannonBall.transform.SetParent(transform);
+                    cannonBall.transform.localScale = new Vector3(5, 5, 5);
+                    cannonBall.GetComponent<Rigidbody>().velocity = cannonBallVelocity;
+                }
+                else
+                {
+                    GameObject cannonBall = Instantiate(cannonBallPrefab, transform.position, Quaternion.identity,
+                        transform);
+                    cannonBall.GetComponent<Rigidbody>().velocity = cannonBallVelocity;
+                    Destroy(cannonBall, cannonBallFadeSeconds);
+                }
+
                 if (explosionEffectActive)
                 {
                     Blast();

@@ -50,6 +50,9 @@ public class GameManager : MonoBehaviour
     public bool GPUInstancingActive;
     public Toggle GPUInstancingToggle;
     
+    public bool ObjectPoolingActive;
+    public Toggle ObjectPoolingToggle;
+    
     public int cannonBallLifetime;
     public Slider cannonBallLifetimeSlider;
     public TMP_Text cannonBallLifetimeText;
@@ -113,6 +116,9 @@ public class GameManager : MonoBehaviour
 
         GPUInstancingToggle.onValueChanged.AddListener(UpdateGPUInstancing);
         GPUInstancingActive = GPUInstancingToggle.isOn;
+        
+        ObjectPoolingToggle.onValueChanged.AddListener(UpdateObjectPooling);
+        ObjectPoolingActive = ObjectPoolingToggle.isOn;
         
         cannonBallLifetimeSlider.onValueChanged.AddListener(UpdateCannonBallLifetimeText);
         cannonBallLifetime = (int)cannonBallLifetimeSlider.value;
@@ -202,6 +208,12 @@ public class GameManager : MonoBehaviour
             material.enableInstancing = value;
         }
         Debug.Log("GPU Instancing is Activated: " + GPUInstancingActive);
+    }
+    
+    private void UpdateObjectPooling(bool value)
+    {
+        ObjectPoolingActive = value;
+        Debug.Log("Object Pooling is Activated: " + GPUInstancingActive);
     }
 
     private void UpdateBrickTypeDropdown(int value)

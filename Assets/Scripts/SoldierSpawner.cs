@@ -29,7 +29,7 @@ public class SoldierSpawner : MonoBehaviour
             {
                 GameObject soldierPrefab = soldierPrefabs[Random.Range(0, soldierPrefabs.Length)];
 
-                Vector3 spawnPosition = transform.position + Vector3.right * j * spacing + Vector3.back * i * spacing;
+                Vector3 spawnPosition = transform.position + Vector3.right * j * spacing + -transform.forward * (i * spacing);
 
                 var soldier = Instantiate(soldierPrefab, spawnPosition, transform.rotation, transform);
                 soldier.layer = gameObject.layer;

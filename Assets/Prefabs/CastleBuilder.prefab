@@ -44,10 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fc007c25ce5354faa4d0bade9283e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brickPrefab: {fileID: 6106986324833583691, guid: 6e13c086ab92f674abe17073c2e54728, type: 3}
-  xCastleStart: 470
-  zCastleStart: 90
-  castleWidth: 42
-  castleHeight: 7
-  castleDepth: 22
-  castleThickness: 2
+  smallBrickPrefab: {fileID: 5240703544199184136, guid: 7a4cb99aafbf9b3428fc5505114ed7f8, type: 3}
+  mediumBrickPrefab: {fileID: 6106986324833583691, guid: 6e13c086ab92f674abe17073c2e54728, type: 3}
+  largeBrickPrefab: {fileID: 6459884613423344597, guid: 5ceb854ba71facb49a4ac9babf78a85c, type: 3}

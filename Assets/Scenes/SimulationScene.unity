@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -174,18 +174,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6545111797585122378, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
-      propertyPath: lines
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6545111797585122378, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
-      propertyPath: spacing
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6545111797585122378, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
-      propertyPath: maxSoldiersPerLine
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6545111797585122379, guid: 4cfdb221e23c64f9298b477e685bd82d, type: 3}
       propertyPath: m_Name
       value: SoldierSpawner2
@@ -286,6 +274,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &883265833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 883265835}
+  - component: {fileID: 883265834}
+  m_Layer: 0
+  m_Name: ExplosionPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &883265834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883265833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eec1377a82b454caf19cb45dbd02166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjectPrefab: {fileID: 7384517354451700808, guid: 7421fa6c6265bb643981e85da629f9a2, type: 3}
+--- !u!4 &883265835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883265833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 828.0646, y: 324.47174, z: -0.37316248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &887079771
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +479,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBallPrefab: {fileID: 100000, guid: ac147cc4a2297604bb4e5bf9099ebfe8, type: 3}
+--- !u!1 &1055594533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055594535}
+  - component: {fileID: 1055594534}
+  m_Layer: 0
+  m_Name: BlastPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1055594534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055594533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af1f2dc802ca40dfbd241b9060ed3c2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjectPrefab: {fileID: 7890100346274769577, guid: d8ef2ff49780fb147bb020d9aedf7fa7, type: 3}
+--- !u!4 &1055594535
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055594533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 828.0646, y: 324.47174, z: -0.37316248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1113249439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -456,18 +534,6 @@ PrefabInstance:
     - target: {fileID: 4851467307590464925, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
       propertyPath: m_Name
       value: SoldierSpawner1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851467307590464926, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
-      propertyPath: lines
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851467307590464926, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
-      propertyPath: spacing
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4851467307590464926, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
-      propertyPath: maxSoldiersPerLine
-      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4851467307590464927, guid: 2c7708bf9d174466eab92a15736c8c79, type: 3}
       propertyPath: m_RootOrder
@@ -629,6 +695,97 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1371639922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1371639924}
+  - component: {fileID: 1371639925}
+  m_Layer: 0
+  m_Name: AttackEffectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1371639924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371639922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 828.0646, y: 324.47174, z: -0.37316248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1371639925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371639922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f96196a9fd2e490d83d240cb8b1937d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodEffectPrefab: {fileID: 8423598095741355672, guid: 9bcf17168fe5a44d4915c0da39686285, type: 3}
+  magicEffectPrefab: {fileID: 866085968243588442, guid: d0809a5ae9e4d46c685e1a40fb214f97, type: 3}
+--- !u!1 &1812620130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1812620132}
+  - component: {fileID: 1812620133}
+  m_Layer: 0
+  m_Name: CannonBallPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1812620132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812620130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 828.0646, y: 324.47174, z: -0.37316248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1812620133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812620130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373cfd36601374ff984504fdb29457a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjectPrefab: {fileID: 100000, guid: ac147cc4a2297604bb4e5bf9099ebfe8, type: 3}
 --- !u!1001 &4660757672768879067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -636,18 +793,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4660757671887402968, guid: 5cb04db61310340d0817a63c90662d9e, type: 3}
-      propertyPath: largeBrickPrefab
-      value: 
-      objectReference: {fileID: 6459884613423344597, guid: 5ceb854ba71facb49a4ac9babf78a85c, type: 3}
-    - target: {fileID: 4660757671887402968, guid: 5cb04db61310340d0817a63c90662d9e, type: 3}
-      propertyPath: smallBrickPrefab
-      value: 
-      objectReference: {fileID: 5240703544199184136, guid: 7a4cb99aafbf9b3428fc5505114ed7f8, type: 3}
-    - target: {fileID: 4660757671887402968, guid: 5cb04db61310340d0817a63c90662d9e, type: 3}
-      propertyPath: mediumBrickPrefab
-      value: 
-      objectReference: {fileID: 6106986324833583691, guid: 6e13c086ab92f674abe17073c2e54728, type: 3}
     - target: {fileID: 4660757671887402969, guid: 5cb04db61310340d0817a63c90662d9e, type: 3}
       propertyPath: m_Name
       value: CastleBuilder
@@ -705,10 +850,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5092663453682530617, guid: 653459304549c472780058bee2c1b3b0, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 5092663453682530617, guid: 653459304549c472780058bee2c1b3b0, type: 3}
       propertyPath: m_Name
       value: CannonSpawner
