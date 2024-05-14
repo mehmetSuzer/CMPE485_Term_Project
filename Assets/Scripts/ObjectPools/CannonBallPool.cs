@@ -15,7 +15,7 @@ namespace ObjectPools
             {
                 Instance = this;
             }
-            amountToPool = GameManager.instance.cannonNumber * 3;
+            amountToPool = GameManager.instance.cannonNumber * 5;
 
         }
         
