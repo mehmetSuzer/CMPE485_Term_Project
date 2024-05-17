@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     
     public static GameManager instance;
     public Material[] materials; // Assign materials to enable GPU instancing
+    public GameObject[] LODPrefabs;
     [SerializeField] private GameObject canvas;
     
     // Variables to store between menu scene and simulation scene
@@ -53,6 +54,9 @@ public class GameManager : MonoBehaviour
     public bool ObjectPoolingActive;
     public Toggle ObjectPoolingToggle;
     
+    public bool LODActive;
+    public Toggle LODToggle;
+    
     public int cannonBallLifetime;
     public Slider cannonBallLifetimeSlider;
     public TMP_Text cannonBallLifetimeText;
@@ -83,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         // Disable GPU instancing for all materials initially
         UpdateGPUInstancing(true);
+        UpdateLOD(true);
 
         lineNumberSlider.onValueChanged.AddListener(UpdateLineNumberText);
         lineNumber = (int)lineNumberSlider.value;
@@ -119,6 +124,9 @@ public class GameManager : MonoBehaviour
         
         ObjectPoolingToggle.onValueChanged.AddListener(UpdateObjectPooling);
         ObjectPoolingActive = ObjectPoolingToggle.isOn;
+        
+        LODToggle.onValueChanged.AddListener(UpdateLOD);
+        LODActive = LODToggle.isOn;
         
         cannonBallLifetimeSlider.onValueChanged.AddListener(UpdateCannonBallLifetimeText);
         cannonBallLifetime = (int)cannonBallLifetimeSlider.value;
@@ -213,7 +221,24 @@ public class GameManager : MonoBehaviour
     private void UpdateObjectPooling(bool value)
     {
         ObjectPoolingActive = value;
-        Debug.Log("Object Pooling is Activated: " + GPUInstancingActive);
+        Debug.Log("Object Pooling is Activated: " + ObjectPoolingActive);
+    }   
+    
+    private void UpdateLOD(bool value)
+    {
+        LODActive = value;
+
+        foreach (GameObject gameObj in LODPrefabs)
+        {
+            var lodGroup = gameObj.GetComponentInChildren<LODGroup>();
+            lodGroup.enabled = value;
+            // if (lodGroup == null)
+            // {
+            //     lodGroup = gameObj.GetComponentI
+            // }
+        }
+        
+        Debug.Log("LOD is Activated: " + LODActive);
     }
 
     private void UpdateBrickTypeDropdown(int value)

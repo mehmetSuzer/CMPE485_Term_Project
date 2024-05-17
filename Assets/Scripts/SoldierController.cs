@@ -61,16 +61,7 @@ public class SoldierController : MonoBehaviour
         animator.SetTrigger("Trigger");
         float attackAnimationLength = animator.GetCurrentAnimatorClipInfo(0).Length;
         yield return new WaitForSeconds(attackAnimationLength);
-
-        // RaycastHit hit;
-        // if (Physics.Raycast(transform.position + Vector3.up * 2.0f, transform.forward, out hit, attackDistance))
-        // {
-        //     if (((1 << hit.transform.gameObject.layer) & enemyLayer) != 0)
-        //     {
-        //         StartCoroutine(Attack());
-        //     }
-        // }
-
+        
         isAttacking = false;
     }
 
